@@ -5,6 +5,9 @@ const reduxUtil = reduxHelper('DatabaseForm')
 // Include component
 import component from './DatabaseForm.js'
 
+// Include actions from DB
+import { actions as dbActions } from '../Database/component.js'
+
 // Action Definitions
 const NAME_CHANGE = reduxUtil.defineAction('NAME_CHANGE')
 const TYPE_CHANGE = reduxUtil.defineAction('TYPE_CHANGE')
@@ -21,7 +24,8 @@ const initialState = {
 const actions = {
   nameChange: reduxUtil.createAction(NAME_CHANGE),
   typeChange: reduxUtil.createAction(TYPE_CHANGE),
-  portChange: reduxUtil.createAction(PORT_CHANGE)
+  portChange: reduxUtil.createAction(PORT_CHANGE),
+  saveDatabase: dbActions.saveDatabase
 }
 
 // Make reducer

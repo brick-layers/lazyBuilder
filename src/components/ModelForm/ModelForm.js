@@ -5,7 +5,6 @@ import deepEqual from 'deep-equal'
 
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 import { actions } from './component.js'
-import { actions as modelActions } from '../Models/component.js'
 import { history } from '../components.js'
 
 const mapStateToProps = state => {
@@ -16,7 +15,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     saveModel: model => {
-      dispatch(modelActions.saveModel(model))
+      dispatch(actions.saveModel(model))
     },
     nameChange: name => {
       dispatch(actions.nameChange(name))
@@ -41,6 +40,7 @@ class ModelForm extends Component {
       name: this.props.name,
       fields: this.props.fields
     })
+    this.reset()
     history.push('/models')
   }
 

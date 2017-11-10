@@ -24,7 +24,13 @@ const Menu = () => {
       {state.Models.models.length > 0 && (
         <div>
           <MenuRow path="/models" label="All Models" icon="list" />
-          <MenuRow path="/model" label="Test Model" icon="minus" />
+          {state.Models.models.map(model => (
+            <MenuRow
+              path={`/model/${model.name}`}
+              label={model.name}
+              icon="minus"
+            />
+          ))}
         </div>
       )}
       <MenuRow path="/model-add" label="Add Model" icon="plus-circled" />

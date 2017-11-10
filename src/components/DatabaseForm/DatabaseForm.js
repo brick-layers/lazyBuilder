@@ -5,7 +5,6 @@ import deepEqual from 'deep-equal'
 
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 import { actions } from './component.js'
-import { actions as dbActions } from '../Database/component.js'
 import { history } from '../components.js'
 
 const mapStateToProps = state => {
@@ -16,7 +15,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     saveDatabase: db => {
-      dispatch(dbActions.saveDatabase(db))
+      dispatch(actions.saveDatabase(db))
     },
     nameChange: name => {
       dispatch(actions.nameChange(name))
