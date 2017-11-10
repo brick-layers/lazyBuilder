@@ -29,7 +29,7 @@ const Menu = () => {
               path={`/model/${model.name}`}
               label={model.name}
               key={model.name}
-              icon="minus"
+              icon="right-open-mini"
             />
           ))}
         </div>

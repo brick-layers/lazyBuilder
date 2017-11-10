@@ -57,7 +57,10 @@ class ModelForm extends Component {
               this.props.nameChange({ name: value })
             }}
           />
+
           <ModelField />
+          {/* Create add field button */}
+          {/* create allowNull and other common validation checkmarks */}
           <button className="btn btn-default" onClick={this.reset}>
             Reset
           </button>
