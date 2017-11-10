@@ -33,7 +33,12 @@ const AppRouter = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/example" component={components.Example} />
-      <Route path="/builder" component={components.Builder} />
+      <Route path="/database" component={components.Database} />
+      <Route path="/database-add" component={components.DatabaseForm} />
+      <Route path="/model/:id" component={components.Model} />
+      <Route path="/models" component={components.Models} />
+      <Route path="/model-add" component={components.ModelForm} />
+      <Route path="/add-association" component={components.AssociationForm} />
     </Switch>
   )
 }

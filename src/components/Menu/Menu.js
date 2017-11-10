@@ -10,16 +10,16 @@ const Menu = () => {
       <h5 className="nav-group-title">
         <span className="icon icon-database" /> Database
       </h5>
-      <MenuRow path="/add-database" label="Set Database" icon="plus-circled" />
+      <MenuRow path="/database-add" label="Set Database" icon="plus-circled" />
       <h5 className="nav-group-title">
         <span className="icon icon-list" /> Models
       </h5>
-      <MenuRow path="/add-model" label="Add Model" icon="plus-circled" />
+      <MenuRow path="/model-add" label="Add Model" icon="plus-circled" />
       <h5 className="nav-group-title">
         <span className="icon icon-share" /> Associations
       </h5>
       <MenuRow
-        path="/add-association"
+        path="/association-add"
         label="Add Association"
         icon="plus-circled"
       />
