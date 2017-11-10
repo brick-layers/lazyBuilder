@@ -9,20 +9,9 @@ class ModelField extends Component {
   render() {
     return (
       <div>
-        <TextInput
-          label="Name"
-          placeholder="Field name?"
-          value={this.props.name}
-          onChange={value => {
-            this.props.nameChange({ name: value })
-          }}
-        />
+        <TextInput label="Name" placeholder="Field name?" />
         <SelectBox
           label="Type"
-          value={this.props.type}
-          onChange={value => {
-            this.props.typeChange({ type: value })
-          }}
           options={[
             { value: 'STRING', label: 'STRING' },
             { value: 'CHAR', label: 'CHAR' },

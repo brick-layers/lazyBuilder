@@ -6,6 +6,7 @@ import deepEqual from 'deep-equal'
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 import { actions } from './component.js'
 import { history } from '../components.js'
+import ModelField from '../ModelField/ModelField.js'
 
 const mapStateToProps = state => {
   return {
@@ -56,6 +57,7 @@ class ModelForm extends Component {
               this.props.nameChange({ name: value })
             }}
           />
+          <ModelField />
           <button className="btn btn-default" onClick={this.reset}>
             Reset
           </button>
