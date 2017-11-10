@@ -1,35 +1,35 @@
 // Init reduxHelper
-import reduxHelper from '../../utils/reduxHelper.js';
-const reduxUtil = reduxHelper('Database');
+import reduxHelper from '../../utils/reduxHelper.js'
+const reduxUtil = reduxHelper('Database')
 
 // Include component
-import component from './Database.js';
+import component from './Database.js'
 
 // Action Definitions
-const DUMMY_ACTION = reduxUtil.defineAction('DUMMY_ACTION');
+const SAVE_DATABASE = reduxUtil.defineAction('SAVE_DATABASE')
 
 // Initial State
 const initialState = {
-  dummyState: false
-};
+  name: '',
+  type: '',
+  port: ''
+}
 
 // Make Actions
 const actions = {
-  dummyAction: reduxUtil.createAction(DUMMY_ACTION)
-};
+  saveDatabase: reduxUtil.createAction(SAVE_DATABASE)
+}
 
 // Make reducer
-const reducer = reduxUtil.createReducer({
-  [DUMMY_ACTION]: function(state, action) {
-    let newState = { ...state, ...action.payload };
-    newState.dummyState = true;
-    return newState;
-  }
-}, initialState);
+const reducer = reduxUtil.createReducer(
+  {
+    [SAVE_DATABASE]: function(state, action) {
+      let newState = { ...state, ...action.payload }
+      return newState
+    }
+  },
+  initialState
+)
 
 // Export
-export {
-  component,
-  actions,
-  reducer
-};
+export { component, actions, reducer }

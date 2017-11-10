@@ -6,7 +6,6 @@ const reduxUtil = reduxHelper('DatabaseForm')
 import component from './DatabaseForm.js'
 
 // Action Definitions
-const SAVE_DATABASE = reduxUtil.defineAction('SAVE_DATABASE')
 const NAME_CHANGE = reduxUtil.defineAction('NAME_CHANGE')
 const TYPE_CHANGE = reduxUtil.defineAction('TYPE_CHANGE')
 const PORT_CHANGE = reduxUtil.defineAction('PORT_CHANGE')
@@ -14,14 +13,12 @@ const PORT_CHANGE = reduxUtil.defineAction('PORT_CHANGE')
 // Initial State
 const initialState = {
   name: '',
-  type: 1,
-  port: '5432',
-  database: {}
+  type: 'PostgreSQL',
+  port: '5432'
 }
 
 // Make Actions
 const actions = {
-  saveDatabase: reduxUtil.createAction(SAVE_DATABASE),
   nameChange: reduxUtil.createAction(NAME_CHANGE),
   typeChange: reduxUtil.createAction(TYPE_CHANGE),
   portChange: reduxUtil.createAction(PORT_CHANGE)
@@ -30,10 +27,6 @@ const actions = {
 // Make reducer
 const reducer = reduxUtil.createReducer(
   {
-    [SAVE_DATABASE]: function(state, action) {
-      let newState = { ...state, ...action.payload }
-      return newState
-    },
     [NAME_CHANGE]: function(state, action) {
       let newState = { ...state, ...action.payload }
       return newState

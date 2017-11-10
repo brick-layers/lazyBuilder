@@ -1,16 +1,25 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
+import { store } from '../components.js'
+
 const Menu = () => {
+  const state = store.getState()
   return (
     <nav className="nav-group">
       <h5 className="nav-group-title">Lazy Builder</h5>
       <MenuRow path="/" label="Home" icon="home" />
       <MenuRow path="/example" label="Example Page" icon="chart-bar" />
-      <h5 className="nav-group-title">
-        <span className="icon icon-database" /> Database
-      </h5>
-      <MenuRow path="/database-add" label="Set Database" icon="plus-circled" />
+      <h5 className="nav-group-title">Database</h5>
+      {state.Database.name ? (
+        <MenuRow path="/database" label={state.Database.name} icon="database" />
+      ) : (
+        <MenuRow
+          path="/database-add"
+          label="Set Database"
+          icon="plus-circled"
+        />
+      )}
       <h5 className="nav-group-title">
         <span className="icon icon-list" /> Models
       </h5>

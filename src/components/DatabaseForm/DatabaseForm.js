@@ -5,6 +5,8 @@ import deepEqual from 'deep-equal'
 
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 import { actions } from './component.js'
+import { actions as dbActions } from '../Database/component.js'
+import { history } from '../components.js'
 
 const mapStateToProps = state => {
   return {
@@ -13,17 +15,17 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    saveDatabase: settings => {
-      dispatch(actions.saveDatabase(settings))
+    saveDatabase: db => {
+      dispatch(dbActions.saveDatabase(db))
     },
-    nameChange: settings => {
-      dispatch(actions.nameChange(settings))
+    nameChange: name => {
+      dispatch(actions.nameChange(name))
     },
-    typeChange: settings => {
-      dispatch(actions.typeChange(settings))
+    typeChange: type => {
+      dispatch(actions.typeChange(type))
     },
-    portChange: settings => {
-      dispatch(actions.portChange(settings))
+    portChange: port => {
+      dispatch(actions.portChange(port))
     }
   }
 }
@@ -48,12 +50,11 @@ class DatabaseForm extends Component {
 
   save = () => {
     this.props.saveDatabase({
-      database: {
-        name: this.props.name,
-        type: this.props.type,
-        port: this.props.port
-      }
+      name: this.props.name,
+      type: this.props.type,
+      port: this.props.port
     })
+    history.push('/database')
   }
 
   render() {
@@ -75,9 +76,9 @@ class DatabaseForm extends Component {
               this.props.typeChange({ type: value })
             }}
             options={[
-              { value: '1', label: 'PostgreSQL' },
-              { value: '2', label: 'MySQL' },
-              { value: '3', label: 'SQLite' }
+              { value: 'PostgreSQL', label: 'PostgreSQL' },
+              { value: 'MySQL', label: 'MySQL' },
+              { value: 'SQLite', label: 'SQLite' }
             ]}
           />
           <TextInput
