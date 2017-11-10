@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 const Footer = () => {
   return (
     <footer className="toolbar toolbar-footer">
-      <h1 className="title">Footer Contents</h1>
+      <h1 className="title">🚧 👷 Brick Layers 👷</h1>
     </footer>
   )
 }
 
-export default Footer;
+export default Footer
