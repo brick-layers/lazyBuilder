@@ -1,12 +1,12 @@
 {
-  "name": "enhanced-electron-react-boilerplate",
-  "version": "0.6.0",
-  "description": "Modern and somewhat opinionated react+electron+webpack boilerplate",
-  "author": "Phillip Barbiero",
-  "homepage": "https://github.com/pbarbiero/enhanced-electron-react-boilerplate",
+  "name": "lazybuilder",
+  "version": "0.0.1",
+  "description": "The ultimate GUI for the lazy suite from brick layers.",
+  "author": "Brick Layers",
+  "homepage": "https://github.com/brick-layers/lazyBuilder",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pbarbiero/enhanced-electron-react-boilerplate.git"
+    "url": "https://github.com/brick-layers/lazyBuilder.git"
   },
   "license": "MIT",
   "main": "main.js",
@@ -52,5 +52,8 @@
     "style-loader": "^0.19.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "babel-plugin-dev-expression": "^0.2.1"
   }
 }
