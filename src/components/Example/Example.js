@@ -7,6 +7,8 @@ import deepEqual from 'deep-equal'
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 import { actions } from './component.js'
 
+import img from '../../assets/images/test.png'
+
 const Example = () => {
   return (
     <div>
@@ -15,6 +17,7 @@ const Example = () => {
         This demonstrates stateful react components utilizing redux, with hooks
         into electron-config to persist some options.
       </p>
+      <img src={img} alt="test" />
       <Settings />
     </div>
   )
