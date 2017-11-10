@@ -5,6 +5,8 @@ import deepEqual from 'deep-equal'
 
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 import { actions } from './component.js'
+import { actions as modelActions } from '../Models/component.js'
+import { history } from '../components.js'
 
 const mapStateToProps = state => {
   return {
@@ -13,8 +15,11 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    saveSettings: settings => {
-      dispatch(actions.saveSettings(settings))
+    saveModel: model => {
+      dispatch(modelActions.saveModel(model))
+    },
+    nameChange: name => {
+      dispatch(actions.nameChange(name))
     }
   }
 }
@@ -25,37 +30,30 @@ class ModelForm extends Component {
       name: props.name,
       fields: props.fields
     }
+    this.originalState = this.state
   }
   reset = () => {
-    this.setState(this.originalState)
+    this.props.nameChange({ name: this.state.name })
   }
 
   save = () => {
-    this.originalState = this.state
-    this.props.saveSettings(this.state)
+    this.props.saveModel({
+      name: this.props.name,
+      fields: this.props.fields
+    })
+    history.push('/models')
   }
+
   render() {
     return (
       <div className="box">
-        <Prompt
-          when={!deepEqual(this.state, this.originalState)}
-          message="You have unsaved changes in your form. Are you sure you wish to leave?"
-        />
         <div className="padded">
           <TextInput
             label="Model Name"
             placeholder="What would you like to call your model?"
-            value={this.state.name}
+            value={this.props.name}
             onChange={value => {
-              this.setState({ name: value })
-            }}
-          />
-          <TextInput
-            label="Database Port"
-            placeholder="What port would you like to use?"
-            value={this.state.port}
-            onChange={value => {
-              this.setState({ port: value })
+              this.props.nameChange({ name: value })
             }}
           />
           <button className="btn btn-default" onClick={this.reset}>

@@ -1,29 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
 
-import { actions } from './component.js'
-
-const mapStateToProps = state => {
-  return {
-    ...state.Model
-  }
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    dummyAction: () => {
-      dispatch(actions.dummyAction())
-    }
-  }
-}
 class Model extends Component {
-  constructor(props) {
-    super(props)
+  constructor( props ) {
+    super( props );
   }
   render() {
-    return <div>Model -- Stateful w/ Redux</div>
+    return (
+      <div>Model -- Stateful</div>
+    );
   }
 }
 
-Model = connect(mapStateToProps, mapDispatchToProps)(Model)
-
-export default Model
+export default Model;

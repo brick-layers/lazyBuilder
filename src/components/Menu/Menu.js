@@ -20,9 +20,13 @@ const Menu = () => {
           icon="plus-circled"
         />
       )}
-      <h5 className="nav-group-title">
-        <span className="icon icon-list" /> Models
-      </h5>
+      <h5 className="nav-group-title">Models</h5>
+      {state.Models.models.length > 0 && (
+        <div>
+          <MenuRow path="/models" label="All Models" icon="list" />
+          <MenuRow path="/model" label="Test Model" icon="minus" />
+        </div>
+      )}
       <MenuRow path="/model-add" label="Add Model" icon="plus-circled" />
       <h5 className="nav-group-title">
         <span className="icon icon-share" /> Associations

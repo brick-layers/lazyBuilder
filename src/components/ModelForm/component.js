@@ -6,7 +6,7 @@ const reduxUtil = reduxHelper('ModelForm')
 import component from './ModelForm.js'
 
 // Action Definitions
-const SAVE_SETTINGS = reduxUtil.defineAction('SAVE_SETTINGS')
+const NAME_CHANGE = reduxUtil.defineAction('NAME_CHANGE')
 
 // Initial State
 const initialState = {
@@ -16,13 +16,13 @@ const initialState = {
 
 // Make Actions
 const actions = {
-  saveSettings: reduxUtil.createAction(SAVE_SETTINGS)
+  nameChange: reduxUtil.createAction(NAME_CHANGE)
 }
 
 // Make reducer
 const reducer = reduxUtil.createReducer(
   {
-    [SAVE_SETTINGS]: function(state, action) {
+    [NAME_CHANGE]: function(state, action) {
       let newState = { ...state, ...action.payload }
       return newState
     }

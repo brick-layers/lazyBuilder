@@ -1,35 +1,34 @@
 // Init reduxHelper
-import reduxHelper from '../../utils/reduxHelper.js';
-const reduxUtil = reduxHelper('Models');
+import reduxHelper from '../../utils/reduxHelper.js'
+const reduxUtil = reduxHelper('Models')
 
 // Include component
-import component from './Models.js';
+import component from './Models.js'
 
 // Action Definitions
-const DUMMY_ACTION = reduxUtil.defineAction('DUMMY_ACTION');
+const SAVE_MODEL = reduxUtil.defineAction('SAVE_MODEL')
 
 // Initial State
 const initialState = {
-  dummyState: false
-};
+  models: []
+}
 
 // Make Actions
 const actions = {
-  dummyAction: reduxUtil.createAction(DUMMY_ACTION)
-};
+  saveModel: reduxUtil.createAction(SAVE_MODEL)
+}
 
 // Make reducer
-const reducer = reduxUtil.createReducer({
-  [DUMMY_ACTION]: function(state, action) {
-    let newState = { ...state, ...action.payload };
-    newState.dummyState = true;
-    return newState;
-  }
-}, initialState);
+const reducer = reduxUtil.createReducer(
+  {
+    [SAVE_MODEL]: function(state, action) {
+      let newState = { ...state }
+      newState.models.push(action.payload)
+      return newState
+    }
+  },
+  initialState
+)
 
 // Export
-export {
-  component,
-  actions,
-  reducer
-};
+export { component, actions, reducer }
