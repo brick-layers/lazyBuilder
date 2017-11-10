@@ -35,7 +35,7 @@ const AppRouter = () => {
       <Route path="/example" component={components.Example} />
       <Route path="/database" component={components.Database} />
       <Route path="/database-add" component={components.DatabaseForm} />
-      <Route path="/model/:id" component={components.Model} />
+      <Route path="/model/:name" component={components.Model} />
       <Route path="/models" component={components.Models} />
       <Route path="/model-add" component={components.ModelForm} />
       <Route path="/add-association" component={components.AssociationForm} />

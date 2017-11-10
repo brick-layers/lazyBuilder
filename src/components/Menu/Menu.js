@@ -28,6 +28,7 @@ const Menu = () => {
             <MenuRow
               path={`/model/${model.name}`}
               label={model.name}
+              key={model.name}
               icon="minus"
             />
           ))}
