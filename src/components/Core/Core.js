@@ -7,16 +7,6 @@ import { components, history, store } from '../components.js'
 import styles from './component.less'
 import logoimg from '../../assets/lazybuilder.png'
 
-document.ondragover = document.ondrop = ev => {
-  ev.preventDefault()
-}
-
-document.body.ondrop = ev => {
-  ev.preventDefault()
-  // this.setState({ json: ev.dataTransfer.files[0].path })
-  console.log(ev.dataTransfer.files[0].path)
-}
-
 const Core = () => {
   return (
     <Provider store={store}>
@@ -49,22 +39,7 @@ const AppRouter = () => {
 }
 
 const Home = () => {
-  return (
-    <div>
-      <div className={styles.center}>
-        <img width="50%" src={logoimg} alt="lazyBuilder Logo" />
-        <div className={`${styles.logoText}`}>lazyBuilder</div>
-        <h3 className={styles.dragText}>Drop a JSON file here</h3>
-      </div>
-      {/*<div className="padded">
-        <div className={`box padded ${styles.box}`}>
-          This has a disdsdsdsdfferent background color, but uses the same 'box'
-          className. However, thanks to CSS modules the names dont collide. Here
-          we are setting a background color, and overriding the shadow.
-        </div>
-  </div>*/}
-    </div>
-  )
+  return <components.Drag />
 }
 
 export default Core
