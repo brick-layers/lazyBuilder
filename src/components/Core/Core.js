@@ -40,6 +40,7 @@ const AppRouter = () => {
       <Route path="/model/:name" component={components.Model} />
       <Route path="/model-edit/:name" component={components.ModelForm} />
       <Route path="/model-add" component={components.ModelForm} />
+      <Route path="/associations" component={components.Associations} />
       <Route path="/add-association" component={components.AssociationForm} />
     </Switch>
   )
