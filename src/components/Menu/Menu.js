@@ -40,11 +40,11 @@ const Menu = () => {
       </h5>
       <MenuRow
         path="/associations"
-        label="Associations"
+        label="Overview"
         icon="icon icon-doc-text"
       />
       <MenuRow
-        path="/association-add"
+        path="/add-association"
         label="Add Association"
         icon="plus-circled"
       />

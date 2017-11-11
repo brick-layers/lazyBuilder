@@ -20,10 +20,33 @@ class Associations extends Component {
     super(props)
   }
   render() {
+    console.log('state:', this.props)
+    if (!this.props.associations.length)
+      return <div>No associations have been created.</div>
     return (
       <div>
-        <div>Associations</div>
-        <div>{}</div>
+        <h3>Associations</h3>
+        <hr />
+        <div>
+          {this.props.associations.map(association => {
+            return (
+              <div
+                key={`${association.sourceModel}-${association.association}-${
+                  association.targetModel
+                }`}
+              >
+                <b>{association.sourceModel} </b>
+                <i>{association.association} </i>
+                <b>{association.targetModel} </b>
+                {association.options && (
+                  <span>
+                    ({association.options} : {association.optionsValue})
+                  </span>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }

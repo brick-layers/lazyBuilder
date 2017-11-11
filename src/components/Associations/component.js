@@ -6,7 +6,6 @@ const reduxUtil = reduxHelper('Associations')
 import component from './Associations.js'
 
 // Action Definitions
-const DUMMY_ACTION = reduxUtil.defineAction('DUMMY_ACTION')
 const ADD_ASSOCIATION = reduxUtil.defineAction('ADD_ASSOCIATION')
 const REMOVE_ASSOCIATION = reduxUtil.defineAction('REMOVE_ASSOCIATION')
 const EDIT_ASSOCIATION = reduxUtil.defineAction('EDIT_ASSOCIATION')
@@ -18,7 +17,6 @@ const initialState = {
 
 // Make Actions
 const actions = {
-  dummyAction: reduxUtil.createAction(DUMMY_ACTION),
   addAssociation: reduxUtil.createAction(ADD_ASSOCIATION),
   removeAssociation: reduxUtil.createAction(REMOVE_ASSOCIATION),
   editAssociation: reduxUtil.createAction(EDIT_ASSOCIATION)
@@ -28,18 +26,21 @@ const actions = {
 const reducer = reduxUtil.createReducer(
   {
     [ADD_ASSOCIATION]: function(state, action) {
-      let newState = { ...state, ...action.payload }
-      newState.dummyState = true
+      let newState = { ...state }
+      newState.associations.push(action.payload)
       return newState
     },
     [REMOVE_ASSOCIATION]: function(state, action) {
-      let newState = { ...state, ...action.payload }
-      newState.dummyState = true
+      let newState = { ...state }
+      newState.forEach(association => {
+        if (association.name === action.payload.name) {
+          console.log('FOUND')
+        }
+      })
       return newState
     },
     [EDIT_ASSOCIATION]: function(state, action) {
       let newState = { ...state, ...action.payload }
-      newState.dummyState = true
       return newState
     }
   },
