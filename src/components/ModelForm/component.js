@@ -33,9 +33,9 @@ const reducer = reduxUtil.createReducer(
       return newState
     },
     [ADD_FIELD]: function(state, action) {
-      let newState = { ...state }
-      newState.fields.push(action.payload)
-      return newState
+      let newFields = state.fields.slice()
+      newFields.push(action.payload)
+      return { ...state, fields: newFields }
     }
   },
   initialState

@@ -53,11 +53,6 @@ class ModelForm extends Component {
     history.push(`/model/${this.props.name}`)
   }
 
-  shouldComponentUpdate(nextProps) {
-    console.log(nextProps)
-    return true
-  }
-
   render() {
     console.log(this.props)
     return (
