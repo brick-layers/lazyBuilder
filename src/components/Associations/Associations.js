@@ -1,27 +1,34 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { actions } from './component.js';
+import { actions } from './component.js'
 
-const mapStateToProps = (state) => { return {
-  ...state.Associations
-} }
-const mapDispatchToProps = (dispatch) => { return {
-  dummyAction: () => {
-    dispatch( actions.dummyAction() );
+const mapStateToProps = state => {
+  return {
+    ...state.Associations
   }
-} }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    dummyAction: () => {
+      dispatch(actions.dummyAction())
+    }
+  }
+}
 class Associations extends Component {
-  constructor( props ) {
-    super( props );
+  constructor(props) {
+    super(props)
   }
   render() {
     return (
-      <div>Associations -- Stateful w/ Redux</div>
-    );
+      <div>
+        <div>Associations</div>
+        <div>{}</div>
+      </div>
+    )
   }
 }
 
-Associations = connect(mapStateToProps, mapDispatchToProps)(Associations);
+Associations = connect(mapStateToProps, mapDispatchToProps)(Associations)
 
-export default Associations;
+export default Associations
