@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { actions } from './component.js'
+import { history } from '../components.js'
 
 const mapStateToProps = state => {
   return {
@@ -10,8 +11,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    dummyAction: () => {
-      dispatch(actions.dummyAction())
+    delete: association => {
+      dispatch(actions.removeAssociation(association))
     }
   }
 }
@@ -19,6 +20,7 @@ class Associations extends Component {
   constructor(props) {
     super(props)
   }
+
   render() {
     console.log('state:', this.props)
     if (!this.props.associations.length)
@@ -43,6 +45,15 @@ class Associations extends Component {
                     ({association.options} : {association.optionsValue})
                   </span>
                 )}
+                <button
+                  onClick={() => {
+                    history.push('/associations')
+                    this.props.delete(association)
+                  }}
+                  className="btn btn-mini btn-negative"
+                >
+                  Remove
+                </button>
               </div>
             )
           })}
