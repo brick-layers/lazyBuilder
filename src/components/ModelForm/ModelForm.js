@@ -42,7 +42,7 @@ class ModelForm extends Component {
       fields: this.props.fields
     })
     this.reset()
-    history.push('/models')
+    history.push(`/model/${this.props.name}`)
   }
 
   render() {
