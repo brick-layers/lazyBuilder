@@ -1,25 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class TextInput extends Component {
   constructor(props) {
-    super(props);
-    this.id = getUID();
+    super(props)
+    this.id = getUID()
   }
-  onChange = (e) => {
-    this.props.onChange(e.target.value);
+  onChange = e => {
+    this.props.onChange(e.target.value)
   }
   render() {
     return (
       <div className="form-group">
         <label htmlFor={this.id}>{this.props.label}</label>
-        <input type="text" className="form-control"
+        <input
+          type="text"
+          className="form-control"
           id={this.id}
           value={this.props.value}
           onChange={this.onChange}
+          name={this.props.name}
           placeholder={this.props.placeholder}
         />
       </div>
-    );
+    )
   }
 }
 TextInput.defaultProps = {
@@ -28,41 +31,45 @@ TextInput.defaultProps = {
 
 class SelectBox extends Component {
   constructor(props) {
-    super(props);
-    this.id = getUID();
+    super(props)
+    this.id = getUID()
   }
-  onChange = (e) => {
-    this.props.onChange(e.target.value);
+  onChange = e => {
+    this.props.onChange(e.target.value, e.target.name)
   }
   render() {
-    let options = [];
-    for ( let option of this.props.options ) {
-      options.push(<option value={option.value} key={option.value}>{option.label}</option>);
+    let options = []
+    for (let option of this.props.options) {
+      options.push(
+        <option value={option.value} key={option.value}>
+          {option.label}
+        </option>
+      )
     }
     return (
       <div className="form-group">
         <label htmlFor={this.id}>{this.props.label}</label>
-        <select className="form-control" value={this.props.value}
+        <select
+          className="form-control"
+          value={this.props.value}
           id={this.id}
+          name={this.props.name}
           onChange={this.onChange}
         >
           {options}
         </select>
       </div>
-    );
+    )
   }
 }
 
-let idCounter = 0;
+let idCounter = 0
 const getUID = () => {
-  idCounter += 1;
-  return "input-id-" + idCounter;
+  idCounter += 1
+  return 'input-id-' + idCounter
 }
 const resetUID = () => {
-  idCounter = 0;
+  idCounter = 0
 }
 
-export {
-  TextInput, SelectBox,
-  resetUID
-};
+export { TextInput, SelectBox, resetUID }
