@@ -26,6 +26,10 @@ class Model extends Component {
         <div className="padded">
           <h5>Model Name</h5>
           <div>{model.name}</div>
+          <h5>Fields</h5>
+          <ul>
+            {model.fields.map(field => <li key={field.id}>{field.name}</li>)}
+          </ul>
           <br />
           <button className="btn btn-default" onClick={() => this.edit(model)}>
             Edit

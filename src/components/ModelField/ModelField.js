@@ -14,7 +14,9 @@ class ModelField extends Component {
     }
   }
 
-  nameChange = () => {}
+  nameChange = value => {
+    this.setState(state => ({ ...state, name: value }))
+  }
   typeChange = value => {
     this.setState(state => ({ ...state, type: value }))
   }
@@ -32,7 +34,12 @@ class ModelField extends Component {
     return (
       <div className="box" style={{ boxShadow: '0 0 0' }}>
         <div className="padded">
-          <TextInput label="Field Name" placeholder="Field name?" />
+          <TextInput
+            label="Field Name"
+            placeholder="Field name?"
+            value={this.state.name}
+            onChange={this.nameChange}
+          />
           <SelectBox
             label="Type"
             value={this.state.type}
