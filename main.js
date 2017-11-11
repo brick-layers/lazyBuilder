@@ -21,10 +21,14 @@ if (
   dev = true
 }
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+    'min-height': 700,
+    'min-width': 700,
     width: 1024,
+    center: true,
+    title: 'lazyBuilder',
     height: 768,
     show: false
   })
@@ -60,7 +64,7 @@ function createWindow () {
   })
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.

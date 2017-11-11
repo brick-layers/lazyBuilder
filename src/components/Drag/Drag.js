@@ -62,8 +62,9 @@ class Drag extends Component {
         {this.props.inputFile &&
           !this.props.complete &&
           !this.props.outputPath && (
-            <div className={`${styles.center} ${styles.fill}`}>
-              <h3 className={styles.dragText}>{this.props.inputFile}</h3>
+            <div className={`${styles.center} `}>
+              <h3 className={styles.dragText}>input file</h3>
+              <p>{this.props.inputFile}</p>
               <h1 className={styles.dragOutputText}>
                 Where should we output your db folder?
               </h1>
@@ -75,8 +76,6 @@ class Drag extends Component {
                       properties: ['openDirectory']
                     },
                     path => {
-                      console.log('!!!!!!!!!!------------hello')
-                      console.log(this.props)
                       this.props.dragInSetOutputPath({ outputPath: path[0] })
                     }
                   )
@@ -106,10 +105,9 @@ class Drag extends Component {
           )}
         {this.props.complete && (
           <div className={`${styles.center} ${styles.fill}`}>
-            <h3 className={styles.dragText}>
-              Do a little dance,<br />make a little code,<br />and get ready
-              because your files are ready!
-            </h3>
+            <h3 className={styles.dragText}>Do a little dance,</h3>
+            <h3 className={styles.dragText}>make a little code,</h3>
+            <h3 className={styles.dragText}>and get ready!</h3>
             <h1 />
           </div>
         )}

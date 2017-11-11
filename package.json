@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "babel-plugin-dev-expression": "^0.2.1",
-    "lazysql": "^0.1.1"
+    "lazysql": "^0.1.1",
+    "lodash": "^4.17.4"
   }
 }
