@@ -1,7 +1,5 @@
 // Include component
-import component from './Model.js';
+import component from './Model.js'
 
 // Export
-export {
-  component
-};
+export { component }

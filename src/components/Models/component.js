@@ -23,7 +23,17 @@ const reducer = reduxUtil.createReducer(
   {
     [SAVE_MODEL]: function(state, action) {
       let newState = { ...state }
-      newState.models.push(action.payload)
+      const index = newState.models
+        .map(mod => mod.name)
+        .indexOf(action.payload.name)
+
+      // If model with same name exists overwrite it
+      if (index === -1) {
+        newState.models.push(action.payload)
+      } else {
+        newState.models[index] = action.payload
+      }
+
       return newState
     }
   },

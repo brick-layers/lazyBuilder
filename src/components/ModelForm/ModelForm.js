@@ -20,6 +20,9 @@ const mapDispatchToProps = dispatch => {
     },
     nameChange: name => {
       dispatch(actions.nameChange(name))
+    },
+    addField: field => {
+      dispatch(actions.addField(field))
     }
   }
 }
@@ -30,12 +33,17 @@ class ModelForm extends Component {
       name: props.name,
       fields: props.fields
     }
+    this.fieldCount = 0
     this.originalState = this.state
+  }
+
+  addField = () => {
+    this.props.addField({ id: this.fieldCount })
+    this.fieldCount++
   }
   reset = () => {
     this.props.nameChange({ name: this.state.name })
   }
-
   save = () => {
     this.props.saveModel({
       name: this.props.name,
@@ -45,7 +53,13 @@ class ModelForm extends Component {
     history.push(`/model/${this.props.name}`)
   }
 
+  shouldComponentUpdate(nextProps) {
+    console.log(nextProps)
+    return true
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div className="box">
         <div className="padded">
@@ -58,9 +72,17 @@ class ModelForm extends Component {
             }}
           />
 
-          <ModelField />
+          {this.props.fields.map(field => (
+            <ModelField key={field.id} field={field} />
+          ))}
           {/* Create add field button */}
           {/* create allowNull and other common validation checkmarks */}
+          <br />
+          <button className="btn btn-default" onClick={this.addField}>
+            Add Field
+          </button>
+          <br />
+          <br />
           <button className="btn btn-default" onClick={this.reset}>
             Reset
           </button>
