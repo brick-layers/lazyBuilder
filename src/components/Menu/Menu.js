@@ -38,11 +38,13 @@ const Menu = () => {
       <h5 className="nav-group-title">
         <span className="icon icon-share" /> Associations
       </h5>
-      <MenuRow
-        path="/associations"
-        label="Overview"
-        icon="icon icon-doc-text"
-      />
+      {state.Associations.associations.length > 0 && (
+        <MenuRow
+          path="/associations"
+          label="Overview"
+          icon="icon icon-doc-text"
+        />
+      )}
       <MenuRow
         path="/add-association"
         label="Add Association"
