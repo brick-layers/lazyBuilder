@@ -39,7 +39,12 @@ const Menu = () => {
         <span className="icon icon-share" /> Associations
       </h5>
       <MenuRow
-        path="/association-add"
+        path="/associations"
+        label="Overview"
+        icon="icon icon-doc-text"
+      />
+      <MenuRow
+        path="/add-association"
         label="Add Association"
         icon="plus-circled"
       />
