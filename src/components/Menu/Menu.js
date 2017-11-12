@@ -53,6 +53,11 @@ const Menu = () => {
       <h5 className="nav-group-title">
         <span className="icon icon-cog" /> Options
       </h5>
+      <MenuRow
+        path="/outputFile"
+        label="Save Configuration"
+        icon="icon icon-logout"
+      />
     </nav>
   )
 }
