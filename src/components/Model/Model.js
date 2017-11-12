@@ -31,9 +31,18 @@ class Model extends Component {
             <h5>Fields</h5>
             {model.fields.map(field => (
               <div key={field.id}>
-                <div>Name: {field.name}</div>
+                <div>{field.name}</div>
                 <ul>
                   <li>Type: {field.type}</li>
+                  {field.allowNull !== null && (
+                    <li>allowNull: {field.allowNull.toString()}</li>
+                  )}
+                  {field.defaultValue !== null && (
+                    <li>defaultValue: {field.defaultValue.toString()}</li>
+                  )}
+                  {field.validations !== null && (
+                    <li>validations: {field.validations.toString()}</li>
+                  )}
                 </ul>
               </div>
             ))}

@@ -8,9 +8,8 @@ const Menu = () => {
   return (
     <div>
       <nav className="nav-group">
-        <h5 className="nav-group-title">Lazy Builder</h5>
+        <h4 className="nav-group-title">Lazy Builder</h4>
         <MenuRow path="/" label="Home" icon="home" />
-        <MenuRow path="/example" label="Example Page" icon="chart-bar" />
         <h5 className="nav-group-title">Database</h5>
         {state.Database.name ? (
           <MenuRow
