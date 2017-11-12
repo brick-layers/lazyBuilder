@@ -22,7 +22,8 @@ class Models extends Component {
   render() {
     return (
       <div>
-        <div>Models -- Stateful w/ Redux</div>
+        <h1>All Models</h1>
+        <hr />
         {this.props.models.map(model => (
           <div key={model.name}>{model.name}</div>
         ))}

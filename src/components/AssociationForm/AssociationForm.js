@@ -44,9 +44,7 @@ class AssociationForm extends Component {
       )
     return (
       <div>
-        <div>
-          <h1>Create an Association</h1>
-        </div>
+        <h1>Add Association</h1>
         <div className="box">
           <div className="padded">
             <form
@@ -142,9 +140,11 @@ class AssociationForm extends Component {
                   placeholder="..."
                 />
               )}
-              <button type="submit" className="btn btn-large btn-primary">
-                Submit
-              </button>
+              <div className="padded" style={{ paddingBottom: '20px' }}>
+                <button type="submit" className="btn btn-primary pull-right">
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>

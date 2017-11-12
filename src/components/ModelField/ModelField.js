@@ -14,26 +14,36 @@ class ModelField extends Component {
       validations: null
     }
   }
-
   nameChange = value => {
-    this.setState(state => ({ ...state, name: value }))
-    this.matchFieldToState()
+    this.setState(
+      state => ({ ...state, name: value }),
+      () => this.matchFieldToState()
+    )
   }
   typeChange = value => {
-    this.setState(state => ({ ...state, type: value }))
-    this.matchFieldToState()
+    console.log(value)
+    this.setState(
+      state => ({ ...state, type: value }),
+      () => this.matchFieldToState()
+    )
   }
   allowNullChange = value => {
-    this.setState(state => ({ ...state, allowNull: value }))
-    this.matchFieldToState()
+    this.setState(
+      state => ({ ...state, allowNull: value }),
+      () => this.matchFieldToState()
+    )
   }
   defaultValueChange = value => {
-    this.setState(state => ({ ...state, defaultValue: value }))
-    this.matchFieldToState()
+    this.setState(
+      state => ({ ...state, defaultValue: value }),
+      () => this.matchFieldToState()
+    )
   }
   validationsChange = value => {
-    this.setState(state => ({ ...state, validations: value }))
-    this.matchFieldToState()
+    this.setState(
+      state => ({ ...state, validations: value }),
+      () => this.matchFieldToState()
+    )
   }
   matchFieldToState = () => {
     for (let key in this.state) this.props.field[key] = this.state[key]
@@ -44,8 +54,8 @@ class ModelField extends Component {
       <div className="box" style={{ boxShadow: '0 0 0' }}>
         <div className="padded">
           <TextInput
-            label="Field Name"
-            placeholder="Field name?"
+            label="Field"
+            placeholder="..."
             value={this.state.name}
             onChange={this.nameChange}
           />
@@ -128,6 +138,12 @@ class ModelField extends Component {
               }
             >
               Validations
+            </button>
+            <button
+              className="btn btn-negative pull-right"
+              onClick={() => this.props.removeField({ id: this.state.id })}
+            >
+              Remove
             </button>
           </div>
         </div>

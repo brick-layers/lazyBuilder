@@ -58,42 +58,45 @@ class DatabaseForm extends Component {
 
   render() {
     return (
-      <div className="box">
-        <div className="padded">
-          <TextInput
-            label="Database Name"
-            placeholder="What would you like to call your database?"
-            value={this.props.name}
-            onChange={value => {
-              this.props.nameChange({ name: value })
-            }}
-          />
-          <SelectBox
-            label="Database Type"
-            value={this.props.type}
-            onChange={value => {
-              this.props.typeChange({ type: value })
-            }}
-            options={[
-              { value: 'PostgreSQL', label: 'PostgreSQL' },
-              { value: 'MySQL', label: 'MySQL' },
-              { value: 'SQLite', label: 'SQLite' }
-            ]}
-          />
-          <TextInput
-            label="Database Port"
-            placeholder="What port would you like to use?"
-            value={this.props.port}
-            onChange={value => {
-              this.props.portChange({ port: value })
-            }}
-          />
-          <button className="btn btn-default" onClick={this.reset}>
-            Reset
-          </button>
-          <button className="btn btn-primary" onClick={this.save}>
-            Save
-          </button>
+      <div>
+        <h1>Set Database</h1>
+        <div className="box">
+          <div className="padded">
+            <TextInput
+              label="Name"
+              placeholder="What would you like to call your database?"
+              value={this.props.name}
+              onChange={value => {
+                this.props.nameChange({ name: value })
+              }}
+            />
+            <SelectBox
+              label="Type"
+              value={this.props.type}
+              onChange={value => {
+                this.props.typeChange({ type: value })
+              }}
+              options={[
+                { value: 'PostgreSQL', label: 'PostgreSQL' },
+                { value: 'MySQL', label: 'MySQL' },
+                { value: 'SQLite', label: 'SQLite' }
+              ]}
+            />
+            <TextInput
+              label="Port"
+              placeholder="What port would you like to use?"
+              value={this.props.port}
+              onChange={value => {
+                this.props.portChange({ port: value })
+              }}
+            />
+            <button className="btn btn-default" onClick={this.reset}>
+              Reset
+            </button>
+            <button className="btn btn-primary pull-right" onClick={this.save}>
+              Save
+            </button>
+          </div>
         </div>
       </div>
     )
