@@ -28,7 +28,13 @@ class Model extends Component {
           <div>{model.name}</div>
           <h5>Fields</h5>
           <ul>
-            {model.fields.map(field => <li key={field.id}>{field.name}</li>)}
+            {model.fields.map(field => [
+              <li key={field.id + field.name}>Name: {field.name}</li>,
+              <li key={field.id + field.type}>Type: {field.type}</li>,
+              <li key={field.id + field.allowNull}>
+                allowNull: {field.allowNull}
+              </li>
+            ])}
           </ul>
           <br />
           <button className="btn btn-default" onClick={() => this.edit(model)}>

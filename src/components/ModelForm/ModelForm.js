@@ -76,7 +76,6 @@ class ModelForm extends Component {
             <br />,
             <ModelField key={field.id} field={field} />
           ])}
-          {/* create allowNull and other common validation checkmarks */}
           <br />
           <button className="btn btn-default" onClick={this.addField}>
             Add Field
