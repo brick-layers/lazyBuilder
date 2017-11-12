@@ -5,31 +5,38 @@ import { TextInput, SelectBox, resetUID } from '../inputs.js'
 class ModelField extends Component {
   constructor(props) {
     super(props)
-    this.field = this.props.field
-    const local = {
+    this.state = {
+      id: this.props.field.id,
       name: '',
-      type: '',
+      type: 'STRING',
       allowNull: null,
       defaultValue: null,
       validations: null
     }
-    for (let p in local) this.field[p] = local[p]
   }
 
   nameChange = value => {
-    this.field.name = value
+    this.setState(state => ({ ...state, name: value }))
+    this.matchFieldToState()
   }
   typeChange = value => {
-    this.field.type = value
+    this.setState(state => ({ ...state, type: value }))
+    this.matchFieldToState()
   }
   allowNullChange = value => {
-    this.field.allowNull = value
+    this.setState(state => ({ ...state, allowNull: value }))
+    this.matchFieldToState()
   }
   defaultValueChange = value => {
-    this.field.defaultValue = value
+    this.setState(state => ({ ...state, defaultValue: value }))
+    this.matchFieldToState()
   }
   validationsChange = value => {
-    this.field.validations = value
+    this.setState(state => ({ ...state, validations: value }))
+    this.matchFieldToState()
+  }
+  matchFieldToState = () => {
+    for (let key in this.state) this.props.field[key] = this.state[key]
   }
 
   render() {
@@ -39,10 +46,12 @@ class ModelField extends Component {
           <TextInput
             label="Field Name"
             placeholder="Field name?"
+            value={this.state.name}
             onChange={this.nameChange}
           />
           <SelectBox
             label="Type"
+            value={this.state.type}
             onChange={this.typeChange}
             options={[
               { value: 'STRING', label: 'STRING' },
@@ -61,10 +70,10 @@ class ModelField extends Component {
               { value: 'VIRTUAL', label: 'VIRTUAL' }
             ]}
           />
-          {this.field.allowNull !== null && (
+          {this.state.allowNull !== null && (
             <SelectBox
               label="allowNull"
-              value={this.field.allowNull}
+              value={this.state.allowNull}
               onChange={this.allowNullChange}
               options={[
                 { value: true, label: 'true' },
@@ -73,43 +82,50 @@ class ModelField extends Component {
               ]}
             />
           )}
-          {this.field.defaultValue !== null && (
+          {this.state.defaultValue !== null && (
             <TextInput
               label="Default Value"
               placeholder="values on values"
-              value={this.field.defaultValue}
+              value={this.state.defaultValue}
               onChange={this.defaultValueChange}
             />
           )}
-          {this.field.validations !== null && (
+          {this.state.validations !== null && (
             <TextInput
               label="Validations"
               placeholder="ex. { isEmail: true, len: [5, 30] }"
-              value={this.field.validations}
+              value={this.state.validations}
               onChange={this.validationsChange}
             />
           )}
           <div className="bottom-toolbar">
-            {this.field.allowNull === null && (
-              <span>
-                <button
-                  className="btn btn-default"
-                  onClick={() => this.allowNullChange(false)}
-                >
-                  Allow Null
-                </button>
-                <span> </span>
-              </span>
-            )}
             <button
               className="btn btn-default"
-              onClick={() => this.defaultValueChange('')}
+              onClick={() =>
+                this.state.allowNull === null
+                  ? this.allowNullChange(false)
+                  : this.allowNullChange(null)
+              }
+            >
+              Allow Null
+            </button>{' '}
+            <button
+              className="btn btn-default"
+              onClick={() =>
+                this.state.defaultValue === null
+                  ? this.defaultValueChange('')
+                  : this.defaultValueChange(null)
+              }
             >
               Default Value
             </button>{' '}
             <button
               className="btn btn-default"
-              onClick={() => this.validationsChange('')}
+              onClick={() =>
+                this.state.validations === null
+                  ? this.validationsChange('')
+                  : this.validationsChange(null)
+              }
             >
               Validations
             </button>

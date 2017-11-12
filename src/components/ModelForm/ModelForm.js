@@ -55,7 +55,7 @@ class ModelForm extends Component {
       name: this.props.name,
       fields: this.props.fields
     })
-    this.reset()
+    this.clear()
     history.push(`/model/${this.props.name}`)
   }
 
