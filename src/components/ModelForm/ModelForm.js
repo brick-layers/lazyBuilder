@@ -55,7 +55,7 @@ class ModelForm extends Component {
       name: this.props.name,
       fields: this.props.fields
     })
-    this.reset()
+    this.clear()
     history.push(`/model/${this.props.name}`)
   }
 
@@ -76,7 +76,6 @@ class ModelForm extends Component {
             <br />,
             <ModelField key={field.id} field={field} />
           ])}
-          {/* create allowNull and other common validation checkmarks */}
           <br />
           <button className="btn btn-default" onClick={this.addField}>
             Add Field

@@ -12,6 +12,8 @@ import { actions as modelActions } from '../Models/component.js'
 const NAME_CHANGE = reduxUtil.defineAction('NAME_CHANGE')
 const ADD_FIELD = reduxUtil.defineAction('ADD_FIELD')
 const CLEAR_FORM = reduxUtil.defineAction('CLEAR_FORM')
+const SAVE_FIELD = reduxUtil.defineAction('SAVE_FIELD')
+
 // Initial State
 const initialState = {
   name: '',
