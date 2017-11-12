@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { store, history } from '../components.js'
+import { createConfigFile } from 'lazysql'
 
 const mapStateToProps = state => {
   console.log('hit state')
@@ -18,6 +19,7 @@ class OutputFile extends Component {
     const preview = document.getElementById('jsonPreview')
     preview.value = JSON.stringify(this.props)
     console.log('-->', this.props)
+    console.log('models -->', this.props.Models)
   }
   render() {
     return (

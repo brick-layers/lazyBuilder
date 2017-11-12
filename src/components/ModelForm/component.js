@@ -12,6 +12,8 @@ import { actions as modelActions } from '../Models/component.js'
 const NAME_CHANGE = reduxUtil.defineAction('NAME_CHANGE')
 const ADD_FIELD = reduxUtil.defineAction('ADD_FIELD')
 const CLEAR_FORM = reduxUtil.defineAction('CLEAR_FORM')
+const REMOVE_FIELD = reduxUtil.defineAction('REMOVE_FIELD')
+
 // Initial State
 const initialState = {
   name: '',
@@ -22,6 +24,7 @@ const initialState = {
 const actions = {
   nameChange: reduxUtil.createAction(NAME_CHANGE),
   addField: reduxUtil.createAction(ADD_FIELD),
+  removeField: reduxUtil.createAction(REMOVE_FIELD),
   clearForm: reduxUtil.createAction(CLEAR_FORM),
   saveModel: modelActions.saveModel
 }
@@ -36,6 +39,13 @@ const reducer = reduxUtil.createReducer(
     [ADD_FIELD]: function(state, action) {
       let newFields = state.fields.slice()
       newFields.push(action.payload)
+      return { ...state, fields: newFields }
+    },
+    [REMOVE_FIELD]: function(state, action) {
+      console.log(action)
+      let newFields = state.fields.filter(
+        field => field.id !== action.payload.id
+      )
       return { ...state, fields: newFields }
     },
     [CLEAR_FORM]: function(state, action) {

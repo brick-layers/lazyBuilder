@@ -22,19 +22,37 @@ class Model extends Component {
     const model = this.props.models.find(model => model.name === name)
     if (!model) return <div>This is not the model you are looking for...</div>
     return (
-      <div className="box">
-        <div className="padded">
-          <h5>Model Name</h5>
-          <div>{model.name}</div>
-          <h5>Fields</h5>
-          <ul>
-            {model.fields.map(field => <li key={field.id}>{field.name}</li>)}
-          </ul>
-          <br />
-          <button className="btn btn-default" onClick={() => this.edit(model)}>
-            Edit
-          </button>
-        </div>
+      <div>
+        <h1>Model: {model.name}</h1>
+        <div className="box">
+          <div className="padded">
+            <h5>Name</h5>
+            <div>{model.name}</div>
+            <h5>Fields</h5>
+            {model.fields.map(field => (
+              <div key={field.id}>
+                <div>Name: {field.name}</div>
+                <ul>
+                  <li>Type: {field.type}</li>
+                </ul>
+              </div>
+            ))}
+            <br />
+            <button
+              className="btn btn-default"
+              onClick={() => this.edit(model)}
+            >
+              Edit
+            </button>
+            <span> </span>
+            <button
+              className="btn btn-negative"
+              onClick={() => this.delete(model)}
+            >
+              Delete
+            </button>
+          </div>
+        </div>{' '}
       </div>
     )
   }

@@ -26,7 +26,7 @@ class Associations extends Component {
       return <div>No associations have been created.</div>
     return (
       <div>
-        <h3>Associations</h3>
+        <h1>All Associations</h1>
         <hr />
         <div>
           {this.props.associations.map(association => {
