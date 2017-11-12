@@ -35,13 +35,13 @@ class Model extends Component {
                 <ul>
                   <li>Type: {field.type}</li>
                   {field.allowNull !== null && (
-                    <li>allowNull: {field.allowNull}</li>
+                    <li>allowNull: {field.allowNull.toString()}</li>
                   )}
                   {field.defaultValue !== null && (
-                    <li>defaultValue: {field.defaultValue}</li>
+                    <li>defaultValue: {field.defaultValue.toString()}</li>
                   )}
                   {field.validations !== null && (
-                    <li>validations: {field.validations}</li>
+                    <li>validations: {field.validations.toString()}</li>
                   )}
                 </ul>
               </div>
