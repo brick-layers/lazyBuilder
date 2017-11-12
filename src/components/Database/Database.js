@@ -18,21 +18,24 @@ const mapDispatchToProps = dispatch => {
 }
 function Database(props) {
   return (
-    <div className="box">
-      <div className="padded">
-        <h5>Database Name</h5>
-        <div>{props.name}</div>
-        <h5>Database Type</h5>
-        <div>{props.type}</div>
-        <h5>Database Port</h5>
-        <div>{props.port}</div>
-        <br />
-        <button
-          className="btn btn-default"
-          onClick={() => history.push('/database-add')}
-        >
-          Edit
-        </button>
+    <div>
+      <h1>Database</h1>
+      <div className="box">
+        <div className="padded">
+          <h5>Name</h5>
+          <div>{props.name}</div>
+          <h5>Type</h5>
+          <div>{props.type}</div>
+          <h5>Port</h5>
+          <div>{props.port}</div>
+          <br />
+          <button
+            className="btn btn-default"
+            onClick={() => history.push('/database-add')}
+          >
+            Edit
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -24,6 +24,9 @@ const mapDispatchToProps = dispatch => {
     addField: field => {
       dispatch(actions.addField(field))
     },
+    removeField: field => {
+      dispatch(actions.removeField(field))
+    },
     clearForm: () => {
       dispatch(actions.clearForm())
     }
@@ -44,6 +47,9 @@ class ModelForm extends Component {
     this.props.addField({ id: this.fieldCount })
     this.fieldCount++
   }
+  removeField = id => {
+    this.props.removeField(id)
+  }
   clear = () => {
     this.props.clearForm()
   }
@@ -62,35 +68,45 @@ class ModelForm extends Component {
   render() {
     console.log(this.props)
     return (
-      <div className="box">
-        <div className="padded">
-          <TextInput
-            label="Model Name"
-            placeholder="What would you like to call your model?"
-            value={this.props.name}
-            onChange={value => {
-              this.props.nameChange({ name: value })
-            }}
-          />
-          {this.props.fields.map(field => [
-            <br />,
-            <ModelField key={field.id} field={field} />
-          ])}
-          <br />
-          <button className="btn btn-default" onClick={this.addField}>
-            Add Field
-          </button>
-          <br />
-          <br />
-          <button className="btn btn-default" onClick={this.clear}>
-            Clear
-          </button>{' '}
-          <button className="btn btn-default" onClick={this.reset}>
-            Reset
-          </button>{' '}
-          <button className="btn btn-primary" onClick={this.save}>
-            Save
-          </button>
+      <div>
+        <h1>Add Model</h1>
+        <div className="box">
+          <div className="padded">
+            <TextInput
+              label="Model Name"
+              placeholder="What would you like to call your model?"
+              value={this.props.name}
+              onChange={value => {
+                this.props.nameChange({ name: value })
+              }}
+            />
+            {this.props.fields.map(field => [
+              <br />,
+              <ModelField
+                key={field.id}
+                field={field}
+                removeField={this.props.removeField}
+              />
+            ])}
+            <br />
+            <button
+              className="btn btn-default pull-right"
+              onClick={this.addField}
+            >
+              Add Field
+            </button>
+            <br />
+            <br />
+            <button className="btn btn-default" onClick={this.clear}>
+              Clear
+            </button>{' '}
+            <button className="btn btn-default" onClick={this.reset}>
+              Reset
+            </button>{' '}
+            <button className="btn btn-primary pull-right" onClick={this.save}>
+              Save
+            </button>
+          </div>
         </div>
       </div>
     )
