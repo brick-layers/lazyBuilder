@@ -23,11 +23,11 @@ function Database(props) {
       <div className="box">
         <div className="padded">
           <h5>Name</h5>
-          <div>{props.name}</div>
+          <div style={{ paddingLeft: '20px' }}>{props.name}</div>
           <h5>Type</h5>
-          <div>{props.type}</div>
+          <div style={{ paddingLeft: '20px' }}>{props.type}</div>
           <h5>Port</h5>
-          <div>{props.port}</div>
+          <div style={{ paddingLeft: '20px' }}>{props.port}</div>
           <br />
           <button
             className="btn btn-default"

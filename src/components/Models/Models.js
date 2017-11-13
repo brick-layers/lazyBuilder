@@ -24,9 +24,7 @@ class Models extends Component {
       <div>
         <h1>All Models</h1>
         <hr />
-        {this.props.models.map(model => (
-          <div key={model.name}>{model.name}</div>
-        ))}
+        {this.props.models.map(model => <h3 key={model.name}>{model.name}</h3>)}
       </div>
     )
   }
