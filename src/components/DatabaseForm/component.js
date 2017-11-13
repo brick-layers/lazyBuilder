@@ -16,7 +16,7 @@ const PORT_CHANGE = reduxUtil.defineAction('PORT_CHANGE')
 // Initial State
 const initialState = {
   name: '',
-  type: 'PostgreSQL',
+  type: 'postgres',
   port: '5432'
 }
 

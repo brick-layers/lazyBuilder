@@ -3320,9 +3320,9 @@ lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
 
-lazysql@^0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/lazysql/-/lazysql-0.1.2.tgz#1bae607ccc604525f4f6f50d49fecf7446a519e7"
+lazysql@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/lazysql/-/lazysql-0.1.4.tgz#4ce0901983c916f7e481835b17502acbb920b648"
   dependencies:
     chalk "^2.3.0"
     commander "^2.11.0"

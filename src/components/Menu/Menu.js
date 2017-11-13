@@ -61,7 +61,7 @@ const Menu = () => {
       <br />
       <div style={{ textAlign: 'center' }}>
         <Link to="/outputFile">
-          <button className="btn btn-positive">Build</button>
+          <button className="btn btn-large btn-positive">Build</button>
         </Link>
       </div>
     </div>
