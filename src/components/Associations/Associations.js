@@ -27,35 +27,38 @@ class Associations extends Component {
     return (
       <div>
         <h1>All Associations</h1>
-        <hr />
-        <div>
-          {this.props.associations.map(association => {
-            return (
-              <div
-                key={`${association.sourceModel}-${association.association}-${
-                  association.targetModel
-                }`}
-              >
-                <b>{association.sourceModel} </b>
-                <i>{association.association} </i>
-                <b>{association.targetModel} </b>
-                {association.options && (
-                  <span>
-                    ({association.options} : {association.optionsValue})
-                  </span>
-                )}
-                <button
-                  onClick={() => {
-                    history.push('/associations')
-                    this.props.delete(association)
-                  }}
-                  className="btn btn-mini btn-negative"
+        <div className="box">
+          <div className="padded">
+            {this.props.associations.map(association => {
+              return (
+                <div
+                  className="padded"
+                  key={`${association.sourceModel}-${association.association}-${
+                    association.targetModel
+                  }`}
                 >
-                  Remove
-                </button>
-              </div>
-            )
-          })}
+                  <b>{association.sourceModel} </b>
+                  <i>{association.association} </i>
+                  <b>{association.targetModel} </b>
+                  {association.options && (
+                    <span>
+                      ({association.options} : {association.optionsValue})
+                    </span>
+                  )}
+                  <span> </span>
+                  <button
+                    onClick={() => {
+                      history.push('/associations')
+                      this.props.delete(association)
+                    }}
+                    className="btn btn-mini btn-negative"
+                  >
+                    Remove
+                  </button>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     )

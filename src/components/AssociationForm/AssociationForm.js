@@ -36,112 +36,112 @@ class AssociationForm extends Component {
     this.setState({ [name]: value })
   }
   render() {
-    if (!this.props.models.length)
-      return (
-        <div>before you can create an association, a model is required</div>
-      )
     return (
       <div>
         <h1>Add Association</h1>
-        <div className="box">
-          <div className="padded">
-            <form
-              onSubmit={e => {
-                e.preventDefault()
-                let optionsValue, options
-                if (e.target.options.value !== 'undefined') {
-                  options = e.target.options.value
-                  optionsValue = e.target.optionsValue.value
-                } else {
-                  options = undefined
-                  optionsValue = undefined
-                }
-                this.setState({
-                  sourceModel: e.target.sourceModel.value,
-                  association: e.target.association.value,
-                  targetModel: e.target.targetModel.value,
-                  options: options,
-                  optionsValue: optionsValue
-                })
-                this.props.saveAssociation({
-                  sourceModel: e.target.sourceModel.value,
-                  association: e.target.association.value,
-                  targetModel: e.target.targetModel.value,
-                  options: options,
-                  optionsValue: optionsValue
-                })
-                history.push('/associations')
-              }}
-            >
-              <SelectBox
-                label="Source Model"
-                name="sourceModel"
-                onChange={this.handleChange}
-                options={this.props.models.map(model => {
-                  return { value: model.name, label: model.name }
-                })}
-              />
-              <SelectBox
-                label="Association"
-                name="association"
-                onChange={this.handleChange}
-                options={[
-                  {
-                    value: 'belongsTo',
-                    label: 'belongsTo (1:1 | FK in source model)'
-                  },
-                  {
-                    value: 'hasOne',
-                    label: 'hasOne (1:1 | FK in target model)'
-                  },
-                  {
-                    value: 'belongsToMany',
-                    label:
-                      'belongsToMany (1:M | join table | needs a through table)'
-                  },
-                  {
-                    value: 'hasMany',
-                    label: 'hasMany (1:M | FK in target model)'
+        {!this.props.models.length ? (
+          <div>Make a model you must before association you can add...</div>
+        ) : (
+          <div className="box">
+            <div className="padded">
+              <form
+                onSubmit={e => {
+                  e.preventDefault()
+                  let optionsValue, options
+                  if (e.target.options.value !== 'undefined') {
+                    options = e.target.options.value
+                    optionsValue = e.target.optionsValue.value
+                  } else {
+                    options = undefined
+                    optionsValue = undefined
                   }
-                ]}
-              />
-              <SelectBox
-                label="Target Model"
-                onChange={this.handleChange}
-                name="targetModel"
-                options={this.props.models.map(model => {
-                  return { value: model.name, label: model.name }
-                })}
-              />
-              <SelectBox
-                label="Option"
-                onChange={this.handleChange}
-                name="options"
-                value={this.state.options}
-                options={[
-                  { value: 'undefined', label: 'none' },
-                  { value: 'as', label: 'as' },
-                  { value: 'through', label: 'through' },
-                  { value: 'foreignKey', label: 'foreignKey' }
-                ]}
-              />
-              {this.state.options !== undefined && (
-                <TextInput
+                  this.setState({
+                    sourceModel: e.target.sourceModel.value,
+                    association: e.target.association.value,
+                    targetModel: e.target.targetModel.value,
+                    options: options,
+                    optionsValue: optionsValue
+                  })
+                  this.props.saveAssociation({
+                    sourceModel: e.target.sourceModel.value,
+                    association: e.target.association.value,
+                    targetModel: e.target.targetModel.value,
+                    options: options,
+                    optionsValue: optionsValue
+                  })
+                  history.push('/associations')
+                }}
+              >
+                <SelectBox
+                  label="Source Model"
+                  name="sourceModel"
                   onChange={this.handleChange}
-                  label="Option Value"
-                  name="optionsValue"
-                  value={this.state.optionsValue}
-                  placeholder="..."
+                  options={this.props.models.map(model => {
+                    return { value: model.name, label: model.name }
+                  })}
                 />
-              )}
-              <div className="padded" style={{ paddingBottom: '20px' }}>
-                <button type="submit" className="btn btn-primary pull-right">
-                  Submit
-                </button>
-              </div>
-            </form>
+                <SelectBox
+                  label="Association"
+                  name="association"
+                  onChange={this.handleChange}
+                  options={[
+                    {
+                      value: 'belongsTo',
+                      label: 'belongsTo (1:1 | FK in source model)'
+                    },
+                    {
+                      value: 'hasOne',
+                      label: 'hasOne (1:1 | FK in target model)'
+                    },
+                    {
+                      value: 'belongsToMany',
+                      label:
+                        'belongsToMany (1:M | join table | needs a through table)'
+                    },
+                    {
+                      value: 'hasMany',
+                      label: 'hasMany (1:M | FK in target model)'
+                    }
+                  ]}
+                />
+                <SelectBox
+                  label="Target Model"
+                  onChange={this.handleChange}
+                  name="targetModel"
+                  options={this.props.models.map(model => {
+                    return { value: model.name, label: model.name }
+                  })}
+                />
+                <SelectBox
+                  label="Option"
+                  onChange={this.handleChange}
+                  name="options"
+                  value={this.state.options}
+                  options={[
+                    { value: 'undefined', label: 'none' },
+                    { value: 'as', label: 'as' },
+                    { value: 'through', label: 'through' },
+                    { value: 'foreignKey', label: 'foreignKey' }
+                  ]}
+                />
+                {this.state.options !== undefined && (
+                  <TextInput
+                    onChange={this.handleChange}
+                    label="Option Value"
+                    name="optionsValue"
+                    value={this.state.optionsValue}
+                    placeholder="..."
+                  />
+                )}
+                <div className="padded" style={{ paddingBottom: '20px' }}>
+                  <button type="submit" className="btn btn-primary pull-right">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     )
   }

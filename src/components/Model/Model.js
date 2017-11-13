@@ -27,23 +27,27 @@ class Model extends Component {
         <div className="box">
           <div className="padded">
             <h5>Name</h5>
-            <div>{model.name}</div>
+            <h5 style={{ paddingLeft: '20px' }}>{model.name}</h5>
             <h5>Fields</h5>
             {model.fields.map(field => (
               <div key={field.id}>
-                <div>{field.name}</div>
-                <ul>
-                  <li>Type: {field.type}</li>
-                  {field.allowNull !== null && (
-                    <li>allowNull: {field.allowNull.toString()}</li>
-                  )}
-                  {field.defaultValue !== null && (
-                    <li>defaultValue: {field.defaultValue.toString()}</li>
-                  )}
-                  {field.validations !== null && (
-                    <li>validations: {field.validations.toString()}</li>
-                  )}
-                </ul>
+                <h5 style={{ paddingLeft: '20px' }}>{field.name}</h5>
+                <div style={{ paddingLeft: '40px' }}>Type: {field.type}</div>
+                {field.allowNull !== null && (
+                  <div style={{ paddingLeft: '40px' }}>
+                    allowNull: {field.allowNull.toString()}
+                  </div>
+                )}
+                {field.defaultValue !== null && (
+                  <div style={{ paddingLeft: '40px' }}>
+                    defaultValue: {field.defaultValue.toString()}
+                  </div>
+                )}
+                {field.validations !== null && (
+                  <div style={{ paddingLeft: '40px' }}>
+                    validations: {field.validations.toString()}
+                  </div>
+                )}
               </div>
             ))}
             <br />
