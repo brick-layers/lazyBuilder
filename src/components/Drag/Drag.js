@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { api } from 'lazysql'
+// import { api } from 'lazysql'
+const lazySQL = require('lazysql').api
+const lazyExpress = require('lazyexpress').api
 
 import Success from '../Success/Success.js'
 
@@ -101,7 +103,8 @@ class Drag extends Component {
               <p>{this.props.outputPath}</p>
               <button
                 onClick={() => {
-                  api(this.props.inputFile, this.props.outputPath)
+                  lazySQL(this.props.inputFile, this.props.outputPath)
+                  lazyExpress(this.props.inputFile, this.props.outputPath)
                   this.props.setComplete()
                 }}
               >
