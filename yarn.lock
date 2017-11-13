@@ -3320,6 +3320,15 @@ lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
 
+lazyexpress@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/lazyexpress/-/lazyexpress-0.0.3.tgz#b340e256283678149f2a598b5fcff2a21e0ac93a"
+  dependencies:
+    chalk "^2.3.0"
+    commander "^2.11.0"
+    pluralize "^7.0.0"
+    prettier "^1.8.2"
+
 lazysql@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/lazysql/-/lazysql-0.1.4.tgz#4ce0901983c916f7e481835b17502acbb920b648"
@@ -4064,6 +4073,10 @@ plist@^2.0.0, plist@^2.1.0:
     base64-js "1.2.0"
     xmlbuilder "8.2.2"
     xmldom "0.1.x"
+
+pluralize@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
 portfinder@^1.0.9:
   version "1.0.13"
