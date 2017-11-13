@@ -3,4 +3,6 @@
 # lazyBuilder
 The ultimate GUI for the lazy suite of products. lazyBuilder currently only supports lazySQL.
 
+See https://github.com/brick-layers/lazySQL and https://github.com/brick-layers/lazyExpress to take a look under the hood.
+
 *Logo sourced with love from @alaq*
