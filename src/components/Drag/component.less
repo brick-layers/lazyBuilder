@@ -10,7 +10,12 @@
   width: 100%;
 }
 
+.logo {
+  z-index: 1;
+}
+
 .logoText {
+  z-index: 1;
   font-family: 'Oleo Script Swash Caps', cursive;
   font-size: 5em;
   padding: 0px;
@@ -30,11 +35,14 @@
 }
 
 .dragText {
+  z-index: 1;
+
   font-size: 2em;
   color: lightgrey;
 }
 
 .dragOutputText {
+  z-index: 1;
   color: darkgrey;
   font-weight: bold;
 }
@@ -42,4 +50,12 @@
 .fill {
   width: 100%;
   height: 100%;
+}
+
+.dropImg {
+  position: absolute;
+  // left: 50%;
+  // z-index: 1;
+  bottom: 0;
+  width: 100%;
 }
