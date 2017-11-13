@@ -9,6 +9,7 @@ import Success from '../Success/Success.js'
 import { actions } from './component.js'
 import styles from './component.less'
 import logoimg from '../../assets/lazybuilder.png'
+import dropImg from '../../assets/drop.png'
 
 import { remote, ipcMain, browserWindow } from 'electron'
 const dialog = remote.dialog
@@ -57,13 +58,19 @@ class Drag extends Component {
     return (
       <div>
         <div className={`${styles.center} ${styles.fill}`}>
-          <img width="60%" src={logoimg} alt="lazyBuilder Logo" />
+          <img
+            width="60%"
+            className={styles.logo}
+            src={logoimg}
+            alt="lazyBuilder Logo"
+          />
           <div className={`${styles.logoText}`}>lazyBuilder</div>
         </div>
         {!this.props.inputFile &&
           !this.props.complete && (
             <div className={`${styles.center} ${styles.fill}`}>
               <h3 className={styles.dragText}>Drop a JSON file here</h3>
+              <img src={dropImg} className={styles.dropImg} />
               <h1 />
             </div>
           )}
