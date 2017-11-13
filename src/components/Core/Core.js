@@ -42,6 +42,7 @@ const AppRouter = () => {
       <Route path="/model-add" component={components.ModelForm} />
       <Route path="/associations" component={components.Associations} />
       <Route path="/add-association" component={components.AssociationForm} />
+      <Route path="/outputFile" component={components.OutputFile} />
     </Switch>
   )
 }

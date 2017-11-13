@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import lazySQL from 'lazysql'
+import { api } from 'lazysql'
+
+import Success from '../Success/Success.js'
 
 import { actions } from './component.js'
 import styles from './component.less'
@@ -46,6 +48,10 @@ class Drag extends Component {
       })
     }
     console.log(this.props.inputFile)
+    if (this.props.complete)
+      return (
+        <Success message="DB folder with all your models files has been created" />
+      )
     return (
       <div>
         <div className={`${styles.center} ${styles.fill}`}>
@@ -95,7 +101,7 @@ class Drag extends Component {
               <p>{this.props.outputPath}</p>
               <button
                 onClick={() => {
-                  lazySQL(this.props.inputFile, this.props.outputPath)
+                  api(this.props.inputFile, this.props.outputPath)
                   this.props.setComplete()
                 }}
               >
@@ -103,14 +109,6 @@ class Drag extends Component {
               </button>
             </div>
           )}
-        {this.props.complete && (
-          <div className={`${styles.center} ${styles.fill}`}>
-            <h3 className={styles.dragText}>Do a little dance,</h3>
-            <h3 className={styles.dragText}>make a little code,</h3>
-            <h3 className={styles.dragText}>and get ready!</h3>
-            <h1 />
-          </div>
-        )}
       </div>
     )
   }

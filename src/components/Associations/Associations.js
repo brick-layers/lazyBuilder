@@ -22,7 +22,6 @@ class Associations extends Component {
   }
 
   render() {
-    console.log('state:', this.props)
     if (!this.props.associations.length)
       return <div>No associations have been created.</div>
     return (

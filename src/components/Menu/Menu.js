@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 import { store } from '../components.js'
 
@@ -60,7 +60,9 @@ const Menu = () => {
       </nav>
       <br />
       <div style={{ textAlign: 'center' }}>
-        <button className="btn btn-positive">Build</button>
+        <Link to="/outputFile">
+          <button className="btn btn-large btn-positive">Build</button>
+        </Link>
       </div>
     </div>
   )

@@ -77,9 +77,9 @@ class DatabaseForm extends Component {
                 this.props.typeChange({ type: value })
               }}
               options={[
-                { value: 'PostgreSQL', label: 'PostgreSQL' },
-                { value: 'MySQL', label: 'MySQL' },
-                { value: 'SQLite', label: 'SQLite' }
+                { value: 'postgres', label: 'PostgreSQL' },
+                { value: 'mysql', label: 'MySQL' },
+                { value: 'sqlite', label: 'SQLite' }
               ]}
             />
             <TextInput

@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import { TextInput, SelectBox, resetUID } from '../inputs.js'
 
 const mapStateToProps = state => {
-  console.log('STATE:', state)
   return {
     models: state.Models.models
   }
@@ -34,7 +33,6 @@ class AssociationForm extends Component {
   }
   handleChange(value, name) {
     if (value === 'undefined') value = undefined
-    console.log('!!!', value, '!', name)
     this.setState({ [name]: value })
   }
   render() {
@@ -50,10 +48,6 @@ class AssociationForm extends Component {
             <form
               onSubmit={e => {
                 e.preventDefault()
-                console.log(e.target)
-                console.log(e.target.sourceModel.value)
-                console.log(e.target.association.value)
-                console.log(e.target.targetModel.value)
                 let optionsValue, options
                 if (e.target.options.value !== 'undefined') {
                   options = e.target.options.value
